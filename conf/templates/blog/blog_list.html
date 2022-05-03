@@ -1,0 +1,15 @@
+
+<style>
+h1{text-align:right;}
+h4{text-align:right;}
+p{text-align:right;}
+</style>
+
+
+{% for obj in object_list %}
+<h1>{{obj.title}}</h1>
+<h4>{{obj.author}}</h4>
+<h4>{{obj.created}}</h4>
+<p>{{obj.content}}</p>
+<hr />
+{% endfor %}
