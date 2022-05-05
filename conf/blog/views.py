@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from django.views.generic import *
 from .models import Blog
 # Create your views here.
@@ -9,3 +9,9 @@ class BlogList(ListView):
     def get_queryset(self):
         return Blog.objects.all()
     
+# Blog Detail
+
+class BlogDetail(DetailView):
+    def get_object(self):
+        return get_object_or_404(Blog.objects.filter(status = True) , pk = self.kwargs.get("pk"))
+        
