@@ -7,7 +7,7 @@ from .serializers import BlogSerializer , Userserializer
 from blog.models import Blog
 # Create your views here.
 
-class Apilist(ListAPIView):
+class Apilist(ListCreateAPIView):
     queryset = Blog.objects.filter(status = True)
     serializer_class = BlogSerializer
     
