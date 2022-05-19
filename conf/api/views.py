@@ -17,7 +17,7 @@ class retrieveUpdatedelete_blog(RetrieveUpdateDestroyAPIView):
     permission_classes = [ IsAuthororReadonly]
     
 
-class UserApiList(RetrieveUpdateAPIView):
+class UserApiList(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = Userserializer
     permission_classes =  [IssuperUserOrStaffreadOnly]
