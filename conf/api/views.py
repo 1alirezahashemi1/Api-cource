@@ -5,6 +5,8 @@ from . permissions import *
 from rest_framework.permissions import BasePermission
 from .serializers import BlogSerializer , Userserializer
 from blog.models import Blog
+from rest_framework.views import APIView
+from rest_framework.response import Response
 # Create your views here.
 
 class Apilist(ListCreateAPIView):
@@ -21,3 +23,11 @@ class UserApiList(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = Userserializer
     permission_classes =  [IssuperUserOrStaffreadOnly]
+
+class RevokeToken(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def delete(self,request):
+        request.auth.delete()
+        return Response({"msg":"deleted"},status=204)
+    
