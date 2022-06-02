@@ -42,13 +42,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog.apps.BlogConfig',
     'api.apps.ApiConfig',
-    'rest_framework.authtoken',
-    'dj_rest_auth',
-     'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'dj_rest_auth.registration',
+    'django.contrib.sites',
+     'rest_framework.authtoken',      
+    # 'dj_rest_auth',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'dj_rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +145,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication'
+        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 
