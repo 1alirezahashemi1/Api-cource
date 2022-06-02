@@ -43,12 +43,13 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'api.apps.ApiConfig',
     'django.contrib.sites',
-     'rest_framework.authtoken',      
-    # 'dj_rest_auth',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'dj_rest_auth.registration',
+    'rest_framework.authtoken',      
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    
 ]
 
 MIDDLEWARE = [
@@ -146,10 +147,14 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ]
 }
 
 SITE_ID = 1
-
+REST_USE_JWT = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+JWT_AUTH_COOKIE = 'accses'
+JWT_AUTH_REFRESH_COOKIE = 'refresh'
