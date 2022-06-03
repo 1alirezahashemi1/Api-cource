@@ -12,7 +12,7 @@ class IsStafforReadOnly(BasePermission):
     def has_permission(self, request, view):
         return bool (
             request.method in SAFE_METHODS or
-            request.user and request.user.is_authenicated 
+            request.user and request.user.is_authenticated 
         )
 
 class IssuperUserOrStaffreadOnly(BasePermission):

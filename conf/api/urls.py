@@ -1,10 +1,11 @@
 from django.urls import *
-from . views import  Apilist , UserApiList , retrieveUpdatedelete_blog , RevokeToken
+from rest_framework import routers
+from . views import  ArticleViesSet , UserApiList 
 app_name = 'api'
 
+router = routers.SimpleRouter()
+router.register('', ArticleViesSet,basename='article')
+
 urlpatterns = [
-   path('',Apilist.as_view(),name='api'),
-   path('<int:pk>',retrieveUpdatedelete_blog.as_view(),name='rdu_blog'),
-   path("users/<int:pk>",UserApiList.as_view(),name='user-api-list'),
-   path('revoke/',RevokeToken.as_view()),
+   path('',include(router.urls))
 ]
